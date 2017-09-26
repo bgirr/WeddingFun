@@ -1,0 +1,103 @@
+<Panel>
+	<Fuse.iOS.StatusBarConfig Style="Light" />
+	<JavaScript File="Login.js" />
+	<ClientPanel>
+		<ImageFill Url="https://s3-eu-west-1.amazonaws.com/weddingfun-images/bg.jpg" StretchMode="UniformToFill" WrapMode="ClampToEdge" Opacity="1.0"/>
+		<HidingPanel ux:Name="topPanel">
+			<GridLayout Rows="60,1*"/>
+			<WhileEnabled>
+				<Change navBarTrans.Y="0" Duration="0.4"/>
+			</WhileEnabled>
+			<Grid Columns="70,1*,70">
+				<Translation ux:Name="navBarTrans" RelativeTo="Size" Y="-0.2" />
+				<Panel HitTestMode="LocalBoundsAndChildren">
+					<Image File="Assets/menu.png" Width="30" Height="30"/>
+					<Clicked>
+						<Scale Factor="0.8" Duration=".15" Easing="CubicInOut" />
+						<Set state.Active="loginButtonState" />
+					</Clicked>
+				</Panel>
+				<Text Value="Feed" Color="White" FontSize="20" Alignment="VerticalCenter"/>
+				<Image File="Assets/search.png" Width="30" Height="30"/>
+			</Grid>
+			<HidingPanel ux:Name="mainPanel">
+
+			</HidingPanel>
+		</HidingPanel>
+
+		<HidingPanel ux:Name="signupForm" Width="90%" Height="45%" Offset="0%,10%">
+			<Grid RowCount="3" Margin="30,40,30,60">
+				<StackPanel>
+					<FloatingLabel PlaceholderText="Name" Value="{showname}" Margin="20, 10, 20, 0" />
+					<FloatingLabel PlaceholderText="Zugangscode" Value="{key}" Margin="20, 10, 20, 0" />
+				</StackPanel>
+				<StackPanel>
+
+				</StackPanel>
+					<Text Value="{ErrorMessage}" TextColor="#f90000" Alignment="Center"  Font="Archer" />
+			</Grid>
+
+
+			<Panel>
+				<Panel ux:Name="submitButton" Width="100" Offset="0%,50%" Height="50" HitTestMode="LocalBoundsAndChildren" Clicked="{login_clicked}">
+					<Text Value="Login" Alignment="Center" Color="White" Font="Archer" FontSize="20" />
+					<Clicked>
+						
+					</Clicked>
+				</Panel>
+				<Panel ux:Name="submitButtonCollapsed" Width="10" Offset="0%,50%" Height="10"/>
+			</Panel>
+		</HidingPanel>
+
+		<HidingPanel ux:Name="startPanel" Alignment="Bottom" Height="30%" Padding="15,0,15,15">
+			<GridLayout Rows="1*,15,15"/>
+			<Panel ux:Name="signupButton" Width="220" Height="50" Alignment="Top"  HitTestMode="LocalBounds">
+				<Text Value="Zugangscode eingeben" TextWrapping="Wrap" Alignment="Center" Color="#4CAF50"  HitTestMode="LocalBounds"  Font="Archer" FontSize="20" />
+				<Clicked>
+					<Set state.Active="signupFormState" />
+				</Clicked>
+			</Panel>
+
+		</HidingPanel>
+
+		<Panel ux:Name="addButtonPanel">
+			<HidingPanel ux:Name="addButton" Width="50" Height="50" Alignment="BottomRight" Margin="40" HitTestMode="LocalBoundsAndChildren">
+				<Text Value="+" FontSize="30" Color="White" Alignment="Center"  Font="Archer" />
+			</HidingPanel>
+			<Rectangle ux:Name="greenRect" Color="#4CAF50" LayoutMaster="submitButtonCollapsed" CornerRadius="25" Opacity="0">
+				<DropShadow />
+				<WhileTrue ux:Name="showGreenRect">
+					<Change greenRect.Opacity="1" Duration="0.2"/>
+				</WhileTrue>
+			</Rectangle>
+		</Panel>
+
+		<Rectangle ux:Name="whiteRect" Color="#ffff" LayoutMaster="signupButton" Layer="Background" CornerRadius="25"/>
+		<Attractor ux:Name="whiteRectCornerRadiusAttractor" Target="whiteRect.CornerRadius" Value="25" Type="SmoothSnap" Unit="Points"/>
+
+		<HidingPanel ux:Name="logoPanel" Alignment="Top" Height="70%" IsEnabled="true" HitTestMode="None" Layer="Background">
+			<StackPanel Alignment="Center">
+				<StackPanel ux:Name="logo" Padding="170,0,0,0">
+					<Text Value="" FontSize="80"  Font="Archer" />
+					<Text Value="" FontSize="80"  Font="Archer" />
+				</StackPanel>
+				
+				<StackPanel ux:Name="logoMockText">
+					<StackPanel>
+
+					</StackPanel>
+				</StackPanel>
+			</StackPanel>
+			<WhileTrue ux:Name="moveLogo">
+				<Change logoMockText.Opacity="0" Duration="0.4" />
+				<Move Target="logo" Y="-0.6" RelativeTo="Size" Duration="0.5" Delay="0.3" Easing="CubicInOut"/>
+			</WhileTrue>
+
+			<WhileKeyboardVisible>
+				<Change logoPanel.IsEnabled="false" />
+			</WhileKeyboardVisible>
+		</HidingPanel>
+
+		<ux:Include File="StateAnimation.ux" />
+	</ClientPanel>
+</Panel>

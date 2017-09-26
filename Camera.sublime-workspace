@@ -1,0 +1,426 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"conte",
+				"Content-type"
+			],
+			[
+				"object",
+				"objectURL"
+			],
+			[
+				"objec",
+				"objectURL"
+			],
+			[
+				"create",
+				"createObjectURL"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"Camer",
+				"CameraRoll"
+			],
+			[
+				"the",
+				"then"
+			],
+			[
+				"a",
+				"arraybuffer"
+			],
+			[
+				"get",
+				"getImageFromBuffer"
+			],
+			[
+				"display",
+				"displayImage"
+			],
+			[
+				"de",
+				"debug_log"
+			],
+			[
+				"Ob",
+				"object"
+			],
+			[
+				"resp",
+				"response"
+			],
+			[
+				"Path",
+				"path2"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"da",
+				"data"
+			],
+			[
+				"reso",
+				"response"
+			],
+			[
+				"respo",
+				"response_ok"
+			],
+			[
+				"c",
+				"console"
+			],
+			[
+				"reci",
+				"recipe_clicked"
+			],
+			[
+				"rec",
+				"recipe_clicked"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"recipe",
+				"recipeNumber"
+			],
+			[
+				"C",
+				"Center\t"
+			],
+			[
+				"Te",
+				"TextBlock\t"
+			],
+			[
+				"Java",
+				"JavaScript\t"
+			],
+			[
+				"Scro",
+				"AllowedScrollDirections\t"
+			],
+			[
+				"Tex",
+				"TextColor\t"
+			],
+			[
+				"Jav",
+				"JavaScript\t"
+			],
+			[
+				"Uniform",
+				"UniformToFill\t"
+			],
+			[
+				"cl",
+				"ux:Class\t"
+			],
+			[
+				"Un",
+				"UniformToFill\t"
+			],
+			[
+				"While",
+				"WhileScrollable\t"
+			],
+			[
+				"Font",
+				"FontSize\t"
+			],
+			[
+				"Pla",
+				"PlaceholderColor\t"
+			],
+			[
+				"Plac",
+				"PlaceholderText\t"
+			],
+			[
+				"Pag",
+				"PageControl\t"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/bgirr/Desktop/Global-Pot_App/Recipes_API.js",
+		"/Users/bgirr/Desktop/Hochzeit/Camera.js",
+		"/Users/bgirr/Desktop/Hochzeit/Pictures.js",
+		"/Users/bgirr/Desktop/Hochzeit/SendButton.ux",
+		"/Users/bgirr/Desktop/Hochzeit/MessageBox.ux",
+		"/Users/bgirr/Desktop/Hochzeit/Resources.ux",
+		"/Users/bgirr/Desktop/Hochzeit/MainView.ux",
+		"/Users/bgirr/Downloads/send-button/MainView.ux",
+		"/Users/bgirr/Desktop/Hochzeit/Ursi + Beeni.unoproj",
+		"/Users/bgirr/Desktop/Global-Pot_App/Recipe_API.js",
+		"/Users/bgirr/Downloads/send-button/SendButton.ux",
+		"/Users/bgirr/Desktop/Hochzeit/MainView.js",
+		"/Users/bgirr/Downloads/backendlesslog-1.log",
+		"/Users/bgirr/Downloads/material-transition/CookingPage.ux",
+		"/Users/bgirr/Downloads/material-transition/TopBar.ux",
+		"/Users/bgirr/Downloads/material-transition/RecipePage.ux",
+		"/Users/bgirr/Downloads/material-transition/Recipes_API.js",
+		"/Users/bgirr/Downloads/play-2.2.4/play.bat",
+		"/Users/bgirr/Downloads/baasbox-1.0.0-M3-20160325/start.bat",
+		"/Users/bgirr/Desktop/Global-Pot_App/MainView.ux",
+		"/Users/bgirr/Desktop/Global-Pot_App/TopBar_Blank.ux",
+		"/Users/bgirr/Desktop/Global-Pot_App/Login.js",
+		"/Users/bgirr/Desktop/Global-Pot_App/TopBar.ux",
+		"/Users/bgirr/Desktop/Global-Pot_App/RecipePage.ux",
+		"/Users/bgirr/Desktop/Global-Pot_App/LoginPage.ux",
+		"/Users/bgirr/Desktop/Global-Pot_App/Overview.ux",
+		"/Users/bgirr/Desktop/Global-Pot_App/CookingPage.ux",
+		"/Users/bgirr/Desktop/GlobalPot_App/Global Pot/MainView.ux",
+		"/Users/bgirr/Desktop/GlobalPot/LoginPage.ux",
+		"/Users/bgirr/Desktop/FuseCloud-master/FuseCloud/Pages/MainPage/MainPage.ux",
+		"/Users/bgirr/Desktop/FuseCloud-master/FuseCloud/Pages/SearchPage/SearchPage.ux",
+		"/Users/bgirr/Desktop/taeglich.json",
+		"/Users/bgirr/Desktop/Tiefer_Gehen/Adventskalender.js",
+		"/Users/bgirr/Desktop/Tiefer_Gehen/Taeglich.ux",
+		"/Users/bgirr/Desktop/Tiefer_Gehen/Woechentlich.ux",
+		"/Users/bgirr/Desktop/Tiefer_Gehen/Information.ux",
+		"/Users/bgirr/Desktop/Tiefer_Gehen/MainMenu.js",
+		"/Users/bgirr/Desktop/Tiefer_Gehen/MainMenu.ux",
+		"/Users/bgirr/Desktop/Tiefer_Gehen/Category_Panel.ux",
+		"/Users/bgirr/Desktop/Tiefer_Gehen/MainView.ux",
+		"/Users/bgirr/Desktop/Cooking_v2/images/TopBar.ux",
+		"/Users/bgirr/Downloads/social-media-screen/start.ux",
+		"/Users/bgirr/Desktop/cooking-app/images/receipe_1.jpg",
+		"/Users/bgirr/Desktop/cooking-app/Receipe.ux",
+		"/Users/bgirr/Desktop/cooking-app/ReceipeView.ux",
+		"/Users/bgirr/Desktop/cooking-app/BasicAnimation.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/bgirr/Desktop/Global-Pot_App",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"StackPanel",
+			"Panel",
+			"send",
+			"isload",
+			"Button",
+			"include",
+			"SendButton",
+			"Button",
+			"Kontaktform",
+			"Konta",
+			"Wobble",
+			"Wobb",
+			"Kontaktf",
+			"isload",
+			"Button",
+			"send",
+			"include",
+			"Body",
+			"Mute",
+			"icon1",
+			"clock",
+			"takeP",
+			"base",
+			"--",
+			"Hier",
+			"){\n",
+			"lastImage",
+			"picture",
+			"\t\n",
+			"Images",
+			"Rezepte",
+			"cookingP",
+			"\"));\n",
+			"/Users/bgirr/Desktop/Global-Pot_App/images/logo.png",
+			"UnoCore/0.44.5/targets/ios/$.uxl",
+			"Library/Application Support/Fusetools/Packages/UnoCore/0.44.5/targets/ios",
+			"\">",
+			"cook",
+			"Wöchen",
+			"woechen",
+			"MainMenu",
+			"TopBarBasic.ux",
+			"favor",
+			"ios",
+			"NewsItem",
+			"news",
+			"'",
+			">\n",
+			"Alignment",
+			"LinearNavigation",
+			"Attractor.SimulationType",
+			"require",
+			"Style",
+			"inherit"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.FuseBuildResults":
+	{
+		"height": 211.0
+	},
+	"output.FuseError":
+	{
+		"height": 110.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Camera.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 230.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

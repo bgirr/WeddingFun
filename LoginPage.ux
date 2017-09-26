@@ -1,0 +1,30 @@
+<Panel>
+	<ImageFill File="Assets/AK8O.jpg" StretchMode="UniformToFill" WrapMode="ClampToEdge" Opacity="1.0"/>
+	<DockPanel>
+		<JavaScript File="Login.js" />
+		<Text ux:Class="WhiteText" TextColor="#ffffff" />
+
+			<StackPanel Dock="Bottom"  Alignment="VerticalCenter" Margin="50,0,50,100">
+				<Text Value="{ErrorMessage}" TextColor="#f90000" />
+				<TextInput PlaceholderText="Benutzername" Value="{showname}" Alignment="Center"/>
+				<TextInput PlaceholderText="Zugangscode" Value="{key}" Alignment="Center"/>	
+				<Rectangle  Width="200" Height="40" Margin="0,0,0,0" CornerRadius="5" Clicked="{login_clicked}" Color="#ffff" Opacity="0.3">
+					<Text Value="Login!" Color="#003B59" Alignment="Center"/>	
+					<Stroke Offset="4" Width="3" Color="#003B59" />
+				</Rectangle>
+				<Rectangle  Width="200" Height="40" Margin="0,0,0,0" CornerRadius="5" Clicked="{read_file}" Color="#ffff" Opacity="0.3">
+					<Text Value="Read File!" Color="#003B59" Alignment="Center"/>	
+					<Stroke Offset="4" Width="3" Color="#003B59" />
+				</Rectangle>
+				<Rectangle  Width="200" Height="40" Margin="0,0,0,0" CornerRadius="5" Clicked="{switch_page}" Color="#ffff" Opacity="0.3">
+					<Text Value="Weiter!" Color="#003B59" Alignment="Center"/>	
+					<Stroke Offset="4" Width="3" Color="#003B59" />
+				</Rectangle>
+			</StackPanel>
+
+
+		<StatusBarBackground Dock="Top"/>
+		<BottomBarBackground Dock="Bottom"/>
+		
+	</DockPanel>
+</Panel>

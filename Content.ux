@@ -1,0 +1,669 @@
+<Panel>
+		<JavaScript File="MainView.js" />
+		<JavaScript File="Main.js" />
+	<ClientPanel>
+	<ImageFill Url="{Background}" StretchMode="UniformToFill" WrapMode="ClampToEdge" Opacity="1.0" />
+
+
+
+		<Fuse.iOS.StatusBarConfig Style="Light" />
+
+	
+
+		
+
+		<Panel ux:Class="FatButton" Background="#FFFFFF" Margin="0,5,0,5" Text="">
+		<string ux:Property="Text" />
+		<Button Text="{ReadProperty this.Text}" Padding="5,5,5,5" />
+		</Panel>
+		
+
+	<JavaScript>
+		var Observable = require("FuseJS/Observable");
+		
+		var isLoading = Observable(false);
+		
+		function clicked() {
+			isLoading.value = true;
+			
+			setTimeout(function() {
+				isLoading.value = false;
+			}, 3000);
+		}
+		
+		module.exports = {
+			isLoading: isLoading,
+			clicked: clicked
+		};
+	</JavaScript>
+
+
+
+
+<Panel Margin="20,0,0,0" Padding="0,200,0,0" Layer="Background">
+	<WhileTrue ux:Name="showContactForm">
+		<ScrollView ux:Name="itemsContactForm">
+		<RemovingAnimation>
+			<Change itemsContactForm.Opacity="0" Duration="0.6" Easing="ExponentialOut" />
+		</RemovingAnimation>
+	<DockPanel ux:Name="ContactForm">
+		<StackPanel Dock="Top">
+			<StatusBarBackground />
+		</StackPanel>
+		
+		<StackPanel Dock="Bottom">
+			<LayoutAnimation>
+				<Move RelativeTo="PositionChange" Y="1" Duration="0.5" Easing="QuadraticInOut" />
+			</LayoutAnimation>
+				<Panel Margin="20" >
+			</Panel>
+			<BottomBarBackground IncludesKeyboard="true" />
+		</StackPanel>
+		
+		<!-- MaxWidth="500" limits the size of the content on larger screens (i.e. tablets) -->
+		<Panel MaxWidth="500" Alignment="VerticalCenter">
+			<LayoutAnimation>
+				<Move RelativeTo="PositionChange" Y="1" Duration="0.2" Easing="QuadraticInOut" />
+			</LayoutAnimation>
+			<StackPanel Margin="25,0" Alignment="Top">
+				<WhileKeyboardVisible>
+					<Change titleContainer.Opacity="0" Duration="0.2" Easing="CubicInOut" />
+					<Move Y="-1" RelativeTo="Size" RelativeNode="titleContainer" Duration="0.2" Easing="CubicInOut" />
+				</WhileKeyboardVisible>
+				
+				<StackPanel ux:Name="titleContainer" ItemSpacing="10" ClipToBounds="true" Padding="0,20">
+					<MutedText Alignment="Left" FontSize="40">
+						Kontaktformular
+						<DropShadow Size="2" Distance="2" Color="#0003" />
+					</MutedText>
+				</StackPanel>
+				
+				<StackPanel Margin="0,20">
+					<TextView ux:Name="messageTextView" Font="RobotoLight" CaretColor="#0004" TextColor="#000a" Height="130" TextWrapping="Wrap" Margin="10" AutoCapitalizationHint="Sentences" AutoCorrectHint="Enabled">
+						<WhileNotFocused>
+							<WhileString Value="{ReadProperty messageTextView.Value}" MaxLength="0">
+								<MutedText ux:Name="messagePlaceholder" Color="#0003" Alignment="Center">
+									Einfach hier die Nachricht schreiben!
+									<AddingAnimation>
+										<Change messagePlaceholder.Opacity="0" Duration="0.2" />
+									</AddingAnimation>
+									<RemovingAnimation>
+										<Change messagePlaceholder.Opacity="0" Duration="0.2" />
+									</RemovingAnimation>
+								</MutedText>
+							</WhileString>
+						</WhileNotFocused>
+					</TextView>
+
+					<Rectangle Color="#0000002e" Height="1">
+						<Shadow Size="2" Distance="1" Color="#0005" />
+					</Rectangle>
+
+
+
+					<Rectangle Layer="Background" Color="#fff" CornerRadius="3">
+						<Shadow Distance="2" Size="3" Color="#0005" />
+					</Rectangle>
+				</StackPanel>
+				
+			</StackPanel>
+		</Panel>
+	</DockPanel>
+</ScrollView>
+</WhileTrue>
+</Panel>
+	
+
+	<HamburgerIcon Alignment="TopLeft" Margin="20,20,20,20" Width="20" StretchMode="Fill" Height="17" Color="{ColorHamburgerIcon}" >
+		<Clicked>
+				<Toggle Target="hideHeadlines" />
+				<Scale Factor="0.9" Duration="0.05" Easing="QuadraticInOut" />
+		</Clicked>
+	</HamburgerIcon>
+	<StackPanel Alignment="TopLeft" Height="80" Width="80" Color="#000000" Opacity="0">
+		<Clicked>
+				<Toggle Target="hideHeadlines" />
+				<Scale Factor="0.9" Duration="0.05" Easing="QuadraticInOut" />
+		</Clicked>
+	</StackPanel>
+	<StackPanel Alignment="Top" Layer="Background">
+	<Panel  Color="{ColorMain}" Height="75" >
+		<MenuText Value="{Headline}" Color="{ColorHeadline}" Alignment="Center" FontSize="40" Margin="0,15,0,0" />
+		<Text Value="{userName}" Color="{ColorUserName}" Alignment="CenterRight" Font="Archer" Margin="0,15,10,0"/>
+	</Panel>
+	<Panel ux:Name="panel1" Color="{ColorMain}" Height="5" Width="100%">
+		<Busy ux:Name="isBusy" IsActive="false" />
+			<WhileBusy>
+				<Cycle Target="panel1.Width" Low="0" High="120" Frequency="0.5" Waveform="Sawtooth"/>
+			</WhileBusy>
+	</Panel>
+	<!-- Hier Wimpelkette einsetzen   !-->
+	<Image File="Assets/wimpelkette.png" Alignment="TopRight" Margin="0,0,0,0" Height="40%" Width="40%" Opacity="1.0" Layer="Layout" />
+	</StackPanel>
+	<Panel  Color="#ffffff" Layer="Background" Visibility="{WhiteBackground}"/>
+			
+		<StackPanel ux:Name="MenuItem">
+			<Clicked>
+				<Toggle Target="hideHeadlines" />
+				<Scale Factor="0.9" Duration="0.05" Easing="QuadraticInOut" />
+			</Clicked>
+			<Panel Color="{ColorMain}" Width="250" Alignment="TopLeft">
+
+			</Panel>
+			<Panel>
+				<Rectangle Padding="10,50,0,0" Background="{ColorMain}" Width="250" MaxHeight="100%" Alignment="Left">
+					<DropShadow/>
+					<StackPanel>
+						<Image Url="{HeaderImage}" Alignment="Center" Margin="10,10,15,10" Height="80%" Width="80%" Opacity="1.0"/>
+					</StackPanel>
+				</Rectangle>
+			</Panel>
+			<ScrollView>
+				<DockPanel>
+			<Panel Clicked="{setPage1Headline}" Dock="Top"  Visibility="{ScheduleVisibility}">
+				<Clicked>
+					<Toggle Target="showItems" />
+					<Set showInfos.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showImages.Value="false" />
+					<Set showContactForm.Value="false" />
+					<Set showMusics.Value="false" />
+					<Set showSelectMusic.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem1" FontSize="28" Value="Ablaufplan" Margin="20,20,0,0" Clicked="{getSchedule}"/>
+			</Panel>
+
+			
+			<Panel Clicked="{setPage3Headline}" Dock="Top" Visibility="{InfoVisibility}">
+				<Clicked>
+					<Toggle Target="showInfos" />
+					<Set showItems.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showImages.Value="false" />
+					<Set showContactForm.Value="false" />
+					<Set showMusics.Value="false" />
+					<Set showSelectMusic.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem3" FontSize="28" Value="Info" Margin="20,20,0,0" Clicked="{getInfos}" />
+			</Panel>
+
+			<Panel Clicked="{setPage5Headline}" Dock="Top" Visibility="{QuizVisibility}">
+				<Clicked>
+					<Toggle Target="showContact" />
+					<Set showItems.Value="false" />
+					<Set showInfos.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showImages.Value="false" />
+					<Set showContactForm.Value="false" />
+					<Set showMusics.Value="false" />
+					<Set showSelectMusic.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem5" FontSize="28" Value="Quiz" Margin="20,20,0,0" Clicked="{quizQuestion}"/>
+			</Panel>
+			
+			<Panel Clicked="{setPage4Headline}" Dock="Top" Visibility="{PhotoVisibility}">
+				<Clicked>
+					<Toggle Target="showImages" />
+					<Set showItems.Value="false" />
+					<Set showInfos.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showContactForm.Value="false" />
+					<Set showMusics.Value="false" />
+					<Set showSelectMusic.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem4" FontSize="28" Value="Fotos" Margin="20,20,0,0" Clicked="{thumbnails}"/>
+			</Panel>
+			<Panel Clicked="{setPage6Headline}" Dock="Top" Visibility="{MusicVisibility}">
+				<Clicked>
+					<Toggle Target="showSelectMusic" />
+					<Set showItems.Value="false" />
+					<Set showInfos.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showImages.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showContactForm.Value="false" />
+					<Set showMusics.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem6" FontSize="28" Value="Musik" Margin="20,20,0,0" Clicked="{selectedMusic}"/>
+			</Panel>
+			<Panel Clicked="{LogOut}" Dock="Top">
+				<MenuText Value="Ausloggen" FontSize="15" Margin="20,10,0,0" />
+			</Panel>
+		</DockPanel>
+	</ScrollView>
+		<Image File="Assets/wimpel_slider.png" Alignment="Left" Margin="10,10,0,0" Height="40%" Width="40%" MaxWidth="230" Opacity="1.0" Layer="Layout" />
+		</StackPanel>
+
+		<Rectangle  ux:Name="leftHeadline" Margin="0,250,0,0" Padding="30,0,0,0" Color="#ffff" Opacity="1" Width="250" Height="100%" Alignment="Left" >
+			<DropShadow />
+		</Rectangle>
+
+
+
+		<WhileFalse ux:Name="hideHeadlines" Bypass="Standard">
+			<Move Target="leftHeadline" X="-1.2" RelativeTo="Size" Duration="0.5" Easing="CircularInOut" />
+			<Move Target="MenuItem" X="-1.2" RelativeTo="Size" Duration="0.5" Easing="CircularInOut" />
+		</WhileFalse>
+		
+
+		<Panel ux:Name="self" TransformOrigin="Center" Width="300" Height="300" Alignment="BottomRight" Offset="100,100" Visibility="{PhotoVisibility}">
+			<Cross ux:Name="cross" HitTestMode="None"/>
+
+			<ClockIcon ux:Name="icon1" Margin="40,30,0,20" Width="30" Height="30" Alignment="Left" Opacity="0" IsEnabled="false" Visibility="{PhotoVisibility}" Clicked="{PictureWedding}">
+				<Translation ux:Name="trans1" X="1.5" RelativeTo="Size" />
+				<Clicked>
+					<Toggle Target="expanded" />
+				</Clicked>
+			</ClockIcon>
+			<LocationIcon ux:Name="icon2" Margin="30,40,20,0" Width="30" Height="30" Alignment="Top" Opacity="0" IsEnabled="false" Visibility="{PhotoVisibility}" Clicked="{CameraRollWedding}">
+				<Translation ux:Name="trans3" Y="1.5" RelativeTo="Size" />
+				<Clicked>
+					<Toggle Target="expanded" />
+				</Clicked>
+			</LocationIcon>
+			<TalkIcon ux:Name="icon3" Margin="70,70,0,0" Width="30" Height="30" Alignment="TopLeft" Opacity="0" IsEnabled="false" Visibility="{MusicVisibility}" Clicked="{setWhiteBackground}">
+				<Translation ux:Name="trans2" X="1" Y="1" RelativeTo="Size" />
+				<Clicked>
+					<Toggle Target="expanded" />
+					<Toggle Target="showMusics" />
+					<Set showItems.Value="false" />
+					<Set showInfos.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showImages.Value="false" />
+					<Set showSelectMusic.Value="false" />
+				</Clicked>
+			</TalkIcon>
+
+
+			<Circle ux:Name="overlayCircle" Color="#0004" Opacity="0" Width="20%" Height="20%" Alignment="Center" >
+				<Clicked>
+					<Toggle Target="expanded" />
+				</Clicked>
+			</Circle>
+			<Circle ux:Name="circle" Color="{ColorMain}" Width="20%" Height="20%" >
+
+			</Circle>
+
+			<WhileTrue ux:Name="enableOptions">
+				<Change icon1.IsEnabled="true" />
+				<Change icon2.IsEnabled="true" />
+				<Change icon3.IsEnabled="true" />
+			</WhileTrue>
+
+			<WhileTrue ux:Name="expanded">
+				<Change circle.Height="100%" Easing="CubicInOut" Duration="0.2" DelayBack="0"/>
+				<Change circle.Width="100%" Easing="CubicInOut" Duration="0.2"  DelayBack="0"/>
+
+				<Change enableOptions.Value="true" Delay="0.1" />
+				<Change overlayCircle.Opacity="1" Delay="0.1" Duration="0.1" />
+				<Rotate Target="cross" Degrees="-45" Duration="0.2" Easing="CubicInOut" />
+
+				<Change trans1.X="0" Delay="0" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2"    DelayBack="0"/>
+				<Change trans2.X="0" Delay="0.05" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2" DelayBack="0"/>
+				<Change trans2.Y="0" Delay="0.05" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2" DelayBack="0"/>
+				<Change trans3.Y="0" Delay="0.1" Duration="0.4" Easing="BounceOut" EasingBack="QuadraticInOut" DurationBack="0.2"  DelayBack="0"/>
+
+				<Change icon1.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+				<Change icon2.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+				<Change icon3.Opacity="1" Delay="0.1" Duration="0.1" Easing="QuadraticInOut" DelayBack="0"/>
+			</WhileTrue>
+
+		</Panel>
+
+		<Panel>
+
+			
+
+
+				<Panel Margin="10,100,10,0" Padding="0,70,0,0" >
+					<WhileTrue ux:Name="showItems">
+						<ScrollView ux:Name="itemsScrollView">
+							<RemovingAnimation>
+								<Change itemsScrollView.Opacity="0" Duration="0.6" Easing="ExponentialOut" />
+							</RemovingAnimation>
+							<StackPanel>
+								<Each Items="{scheduleList}">
+									<Rectangle Margin="10" Color="White" CornerRadius="2" >
+										<StackPanel>
+											<Grid Columns="2">
+												<Image Url="{contentImageUrl}"  Margin="0,10,10,10" Column="2"/>
+												<StackPanel Column="1" >
+													<Text Value="{time}" Font="Headline" Margin="16, 8, 16, 0" FontSize="20" TextColor="{TextColorHeadline}" TextWrapping="Wrap"/>
+													<Text Value="{contentHeader}" Font="Archer" Margin="16, 8, 16, 0"  TextColor="{TextColor}" FontSize="14"  TextWrapping="Wrap"/>
+													<Text Alignment="Left" Value="{contentText}" Margin="16, 5, 0, 10" TextColor="{TextColor}" Font="Archer" TextWrapping="Wrap" FontSize="20" />
+												</StackPanel>
+											</Grid>
+										</StackPanel>
+										<DropShadow />
+									</Rectangle>
+								</Each>
+
+							</StackPanel>
+						</ScrollView>
+					</WhileTrue>
+				</Panel>
+
+
+				<Panel Margin="10,90,10,0" Padding="0,80,0,0">
+					<WhileTrue ux:Name="showInfos">
+						<ScrollView ux:Name="itemsScrollViewInfos">
+							<RemovingAnimation>
+								<Change itemsScrollViewInfos.Opacity="0" Duration="0.6" Easing="ExponentialOut" />
+							</RemovingAnimation>
+
+							<StackPanel>
+								<Each Items="{InfoList}">
+									<Rectangle Margin="10" Color="White" CornerRadius="2">
+									<StackPanel>
+											<StackPanel>
+												<Text Alignment="Left" Value="{contentHeader}" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
+												<Text Value="{contentText}" Font="Archer" Margin="16, 8, 16, 5"  FontSize="16" TextColor="{TextColor}"  TextWrapping="Wrap"/>
+											</StackPanel>
+									</StackPanel>
+									<DropShadow />
+									</Rectangle>
+								</Each>
+
+								<Rectangle Margin="10" Color="White" CornerRadius="2">
+									<StackPanel>
+											<StackPanel>
+												<Text Alignment="Left" Value="Fotos" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
+												<Text Value="Ihr habt am Hochzeitstag die Möglichkeit über unsere Homepage oder die App eigene Bilder zu machen und hochzuladen. Wir würden uns freuen wenn so ein paar Schnappschüsse zusammen kommen, die wir dann gemeinsam anschauen können." Font="Archer" Margin="16, 8, 16, 5"  FontSize="16" TextColor="{TextColor}"  TextWrapping="Wrap"/>
+											</StackPanel>
+									</StackPanel>
+									<DropShadow />
+								</Rectangle>
+
+								<Rectangle Margin="10" Color="White" CornerRadius="2">
+									<StackPanel>
+											<StackPanel>
+												<Text Alignment="Left" Value="Kuchen" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
+												<Text Value="Wenn ihr gerne einen Kuchen backt, gibt uns gerne Bescheid. Wir freuen uns, wenn wir eine bunte Auswahl für unser Kuchenbuffet zusammen bekommen." Font="Archer" Margin="16, 8, 16, 5"  FontSize="16" TextColor="{TextColor}" TextWrapping="Wrap"/>
+											</StackPanel>
+									</StackPanel>
+									<DropShadow />
+								</Rectangle>
+
+								<Rectangle Margin="10" Color="White" CornerRadius="2">
+									<StackPanel>
+											<StackPanel>
+												<Text Alignment="Left" Value="Kleidung" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
+												<Text Value="Erwünscht." Font="Archer" Margin="16, 8, 16, 5"  TextColor="{TextColor}" FontSize="16"  TextWrapping="Wrap"/>
+											</StackPanel>
+									</StackPanel>
+									<DropShadow />
+								</Rectangle>
+
+								<Rectangle Margin="10" Color="White" CornerRadius="2">
+									<StackPanel>
+											<StackPanel>
+												<Text Alignment="Left" Value="Autokorso" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
+												<Text Value="Wir haben als Deko für eure Autos selbstgemachte Wimpel vorbereitet, die könnt ihr an Antenne, Scheibenwischer oder Spiegel ganz einfach festknoten. Hupen in der Kolonne ist ausdrücklich erwünscht :)" TextColor="{TextColor}" Font="Archer" Margin="16, 8, 16, 5"  FontSize="16"  TextWrapping="Wrap"/>
+											</StackPanel>
+									</StackPanel>
+									<DropShadow />
+								</Rectangle>
+
+
+								<Rectangle Margin="10" Color="White" CornerRadius="2">
+									<StackPanel>
+											<StackPanel>
+												<Text Alignment="Left" Value="Geschenke" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
+												<Text Value="Wir freuen uns, wenn ihr diesen Tag gemeinsam mit uns feiert, wer uns darüber hinaus eine Freude machen will kann gerne unsere Altersvorsorge unterstützen. Vom Kauf griechischer Staatsanleihen bitten wir abzusehen." Font="Archer" Margin="16, 8, 16, 5"  FontSize="16"  TextWrapping="Wrap"/>
+											</StackPanel>
+									</StackPanel>
+									<DropShadow />
+								</Rectangle>
+
+								<Rectangle Margin="10" Color="White" CornerRadius="2">
+									<StackPanel>
+											<StackPanel>
+												<Text Alignment="Left" Value="Spiele und Programm" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
+												<Text Value="Wir möchten vor allem einen gemütlichen und lustigen Abend mit Euch verbringen und haben selbst ein paar kleine Spiele vorbereitet. Ihr müsst nichts mitbringen – nur gute Laune ; )" Font="Archer" Margin="16, 8, 16, 5"  FontSize="16"  TextWrapping="Wrap"/>
+											</StackPanel>
+									</StackPanel>
+									<DropShadow />
+								</Rectangle>
+								<Panel Height="80"/>
+							</StackPanel>
+						</ScrollView>
+					</WhileTrue>
+				</Panel>
+
+				<Panel Margin="20,0,0,0" Padding="0,200,0,0">
+					<WhileTrue ux:Name="showLocations">
+						<ScrollView ux:Name="itemsScrollViewLocations">
+							<RemovingAnimation>
+								<Change itemsScrollViewLocations.Opacity="0" Duration="0.6" Easing="ExponentialOut" />
+							</RemovingAnimation>
+							<StackPanel>
+								<Rectangle Margin="10" Color="White" CornerRadius="2">
+								<DockPanel>    
+									<DockPanel>     
+										<Text Value="Restaurant Pfaffenwinkel" FontSize="30" Font="Archer" TextColor="{TextColor}" />
+										<Text Padding="0,10,0,0" Value="Am Hochschloß, 82396 Pähl " TextWrapping="Wrap" TextColor="{TextColor}" FontSize="10" />
+										<Text Padding="0,5,0,20" Value="82396 Pähl " TextWrapping="Wrap" TextColor="{TextColor}" FontSize="10" />
+									</DockPanel>
+									<Panel>
+										<NativeViewHost>
+											<MapView Latitude="47.913242" Longitude="11.184767" Zoom="10" Height="350">
+												<MapMarker Latitude="47.913242" Longitude="11.184767" Label="Restaurant Pfaffenwinkel"/>
+											</MapView>
+										</NativeViewHost>
+									</Panel>
+								</DockPanel>
+								<DropShadow/>
+								</Rectangle>
+							</StackPanel>
+						</ScrollView>
+					</WhileTrue>
+				</Panel>
+
+<Panel Margin="20,100,0,0" Padding="0,60,0,0">
+					<WhileTrue ux:Name="showImages">
+						<ScrollView ux:Name="itemsScrollViewImages" KeepFocusInView="true">
+							<PullToReload ReloadHandler="{thumbnails}" />
+							<RemovingAnimation>
+								<Change itemsScrollViewImages.Opacity="0" Duration="0.6" Easing="ExponentialOut" />
+							</RemovingAnimation>
+							<StackPanel>
+
+								<Each Items="{pictures}">
+									<Rectangle Margin="0,10,20,0" Color="White" CornerRadius="2">
+										<StackPanel>
+											<Image Url="http://app.ursiundbeeni.com/images/static/{imageUrl}" />
+											<DockPanel>
+												<Text Value="{user.showName} |   {numberOfHearts}" TextColor="{TextColor}"  Margin="16, 35, 0, 0"  FontSize="20" Font="Archer" Dock="Left"/>
+												<HeartIcon Color="{TextColor}" Dock="Left" Height="40" Width="40" Margin="4,28,0,0"/>
+												<Panel Margin="0,28,20,0" Dock="Right">
+													<Rectangle  Height="40" Width="40" Clicked="{dislikeImage}" Visibility="{heartByCurrentUser}">
+														<HeartIconFilled Color="{Color}"  />
+													</Rectangle>
+													<Rectangle  Height="40" Width="40" Clicked="{likeImage}" >
+														<HeartIcon Color="{Color}"  />
+													</Rectangle>
+												</Panel>
+											</DockPanel>	
+												<StackPanel Padding="8" Orientation="Horizontal">
+
+												</StackPanel>
+										</StackPanel>
+										<DropShadow />
+									</Rectangle>
+								</Each>
+
+
+
+							</StackPanel>
+						</ScrollView>
+					</WhileTrue>
+				</Panel>
+
+
+<Panel Margin="20,100,0,0" Padding="0,60,0,0">
+					<WhileTrue ux:Name="showSelectMusic">
+						<ScrollView ux:Name="itemsScrollViewSelectMusic" KeepFocusInView="true"> 
+							<PullToReload ReloadHandler="{selectedMusic}" />
+							<RemovingAnimation>
+								<Change itemsScrollViewSelectMusic.Opacity="0" Duration="0.6" Easing="ExponentialOut" />
+							</RemovingAnimation>
+							<StackPanel>
+
+								<Each Items="{selectMusic}">
+								<Rectangle Margin="0,10,20,10" Color="White" CornerRadius="2">
+								<StackPanel>
+									<Grid Columns="10, auto">
+										<Circle  Column="1" Alignment="CenterLeft" Height="50" Width="50" Margin="20,10,0,10">
+											 <ImageFill Url="{imageUrl}" />
+										</Circle>
+											<StackPanel Margin="0,10,0,12" Column="2">
+												<Text Dock="Left" Value="{artist} - " Margin="16, 5, 0, 0" Font="Archer" TextWrapping="Wrap" TextColor="{TextColor}" FontSize="15" Alignment="CenterLeft"/>
+												<Text Dock="Left" Value="{name}" Margin="16, 5, 0, 0" Font="Archer" TextWrapping="Wrap" TextColor="{TextColor}" FontSize="20" Alignment="CenterLeft"/>
+											</StackPanel>
+									</Grid>
+											<DockPanel>
+												<Text Value="   {numberOfHearts}"  Margin="16, 10, 0, 0"  FontSize="22" TextColor="{TextColor}" Font="Archer" Dock="Left"/>
+												<HeartIcon Color="{TextColor}" Dock="Left" Height="40" Width="40" Margin="4,4,0,0"/>
+												<Text Value="{user.showName}"  Margin="16, 12, 0, 0"  FontSize="18" TextColor="{TextColor}" Font="Archer" Dock="Left"/>
+												<Panel Margin="0,4,20,0" Dock="Right">
+													<Panel Height="40" Width="40" Clicked="{dislikeMusic}" Visibility="{heartByCurrentUser}">
+														<HeartIconFilled Color="{Color}"   />
+													</Panel>
+													<Panel Clicked="{likeMusic}" Height="40" Width="40">
+														<HeartIcon Color="{Color}"  />
+													</Panel>
+												</Panel>
+											</DockPanel>	
+												<StackPanel Padding="8" Orientation="Horizontal">
+
+												</StackPanel>
+								</StackPanel>	
+									<DropShadow />
+								</Rectangle>
+								</Each>
+
+
+
+							</StackPanel>
+						</ScrollView>
+					</WhileTrue>
+				</Panel>
+
+<Panel Margin="10,0,0,10" Padding="0,160,0,0">
+					<WhileTrue ux:Name="showContact">
+						<ScrollView ux:Name="itemsScrollViewContacts" KeepFocusInView="true">
+							<PullToReload ReloadHandler="{quizQuestion}" />
+							<RemovingAnimation>
+								<Change itemsScrollViewContacts.Opacity="0" Duration="0.6" Easing="ExponentialOut" />
+							</RemovingAnimation>
+								<StackPanel>
+								
+									<StackPanel>
+										<StackPanel Column="1" >
+											<Text Alignment="Left" Value="{question.questionText}" Margin="16, 5, 0, 0" Font="Archer" TextColor="{TextColor}" TextWrapping="Wrap" FontSize="30" />
+											<Text Alignment="Left" Value="Gewählte Antwort: {question.responseOfCurrentUser}" Margin="16, 5, 0, 0" Font="Archer" TextColor="{TextColor}" TextWrapping="Wrap" FontSize="20" Visibility="{answerVisible}"/>
+											<Text Alignment="TopCenter" Value="Wähle ein Team" Font="Archer" TextWrapping="Wrap" FontSize="30" TextColor="{TextColor}" Visibility="{chooseTeam}" />
+										</StackPanel>
+									</StackPanel>
+									<DropShadow />
+								
+
+									<Each Items="{question.responseOptionsList}">
+								<Rectangle ux:Name="Antwort" Margin="0,10,10,10" Color="White" CornerRadius="2" Clicked="{answerQuestion}" Visibility="{questionVisible}">
+									<WhilePressed>
+										<Change Antwort.Color="{ColorMain}" />
+									</WhilePressed>
+								<StackPanel>
+									<Grid Columns="10, auto">
+										<Text  Column="1" Alignment="Center" Height="50" Width="50" Value="{label}" FontSize="40" TextColor="{TextColor}" Margin="20,10,0,10" />
+											<StackPanel Margin="0,10,0,12" Column="2">
+												<Text Dock="Left" Value="{responseText}" Margin="16, 5, 0, 0" Font="Archer" TextWrapping="Wrap" FontSize="20" TextColor="{TextColor}" Alignment="CenterLeft"/>
+											</StackPanel>
+									</Grid>
+												<StackPanel Padding="8" Orientation="Horizontal">
+
+												</StackPanel>
+								</StackPanel>	
+									<DropShadow />
+								</Rectangle>
+								</Each>
+
+								<Each Items="{teams}">
+									<Rectangle Margin="0,10,10,10" CornerRadius="2" Clicked="{setTeam}" Color="{teamColor}">
+										<StackPanel>
+										<Text  Column="1" Alignment="Center" Height="50" Width="50" Value="{label}" FontSize="40" />
+											<StackPanel  Alignment="Center" Column="2" >
+												<Text Dock="Left" Value="{teamName}" Font="Archer" TextWrapping="Wrap" TextColor="{TextColor}" FontSize="50" TextAlignment="Center"/>
+											</StackPanel>
+												<StackPanel Padding="8" Orientation="Horizontal">
+												</StackPanel>
+										</StackPanel>	
+									<DropShadow />
+								</Rectangle>
+								</Each>
+								<StackPanel Padding="30" Orientation="Horizontal" />
+							</StackPanel>
+						</ScrollView>
+					</WhileTrue>
+				</Panel>
+
+
+
+<Panel Margin="10,100,10,0" Padding="0,80,0,0">
+					<WhileTrue ux:Name="showMusics">
+						<ScrollView ux:Name="itemsScrollViewMusics">
+							<RemovingAnimation>
+								<Change itemsScrollViewMusics.Opacity="0" Duration="0.6" Easing="ExponentialOut" />
+							</RemovingAnimation>
+
+							<StackPanel>
+
+
+								<Rectangle Margin="10" Color="White" CornerRadius="2">
+									<StackPanel>
+											<FloatingLabel PlaceholderText="Dein Wunschlied..." Value="{music_user_value}" Margin="20, 10, 20, 20" Column="1" />
+									</StackPanel>
+									<DropShadow />
+								</Rectangle>
+
+								<Each Items="{music_JSON.results.trackmatches.track}">
+
+								<Rectangle Margin="0,10,0,10" Color="White" CornerRadius="2">
+								<StackPanel>
+									<Grid Columns="10, auto">
+										<Circle  Column="1" Alignment="CenterLeft" Height="50" Width="50" Margin="20,0,0,0">
+											 <ImageFill Url="{imageNew}" />
+										</Circle>
+										<DockPanel Column="2">
+											<StackPanel>
+												<Text Dock="Left" Value="{artist} - " Margin="16, 5, 0, 0" Font="Archer" TextWrapping="Wrap" FontSize="15" TextColor="{TextColor}" Alignment="CenterLeft"/>
+												<Text Dock="Left" Value="{name}" Margin="16, 5, 0, 0" Font="Archer" TextWrapping="Wrap" FontSize="20" TextColor="{TextColor}" Alignment="CenterLeft"/>
+											</StackPanel>
+											<MiniFloatingButton BtnColor="{ColorMain}" BtnIcon="&#xE145;" BtnTextColor="#ffff" Dock="Right" Clicked="{addMusic}"/>
+										</DockPanel>
+									</Grid>
+								</StackPanel>	
+									<DropShadow />
+								</Rectangle>
+							</Each>
+							
+
+							</StackPanel>
+						</ScrollView>
+					</WhileTrue>
+				</Panel>
+
+		</Panel>
+
+<Panel Alignment="BottomCenter" Visibility="{UploadMessageVisible}" Layer="Overlay">
+		<Rectangle ux:Name="btn" Height="36" CornerRadius="20" Color="#323232" Padding="16,0" Margin="16" >
+			<Text Value="{UploadMessage}" FontSize="14" TextColor="#ffff" Alignment="CenterLeft"/>
+		</Rectangle>
+</Panel>
+	</ClientPanel>
+
+</Panel>

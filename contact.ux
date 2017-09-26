@@ -1,0 +1,8 @@
+<Page ux:Template="Main">
+    <Transition To="Contacts">
+        <Move X="-1" RelativeTo="ParentSize" Duration="1"/>
+    </Transition>
+    <Transition>
+        <Move Y="1" RelativeTo="ParentSize" Duration="1"/>
+    </Transition>
+</Page>

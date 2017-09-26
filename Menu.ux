@@ -1,0 +1,58 @@
+<Panel>
+<StackPanel ux:Name="MenuItem">
+			<Clicked>
+				<Toggle Target="hideHeadlines" />
+				<Scale Factor="0.9" Duration="0.05" Easing="QuadraticInOut" />
+			</Clicked>
+			<Panel>
+				<Clicked>
+					<Toggle Target="showItems" />
+					<Set showInfos.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showImages.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem1" FontSize="30" Value="Ablaufplan" Margin="20,100,0,0" />
+			</Panel>
+			<Panel>
+				<Clicked>
+					<Toggle Target="showLocations" />
+					<Set showItems.Value="false" />
+					<Set showInfos.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showImages.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem2" FontSize="30" Value="Locations" Margin="20,20,0,0" />
+			</Panel>
+			<Panel>
+				<Clicked>
+					<Toggle Target="showInfos" />
+					<Set showItems.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showImages.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem3" FontSize="30" Value="Info" Margin="20,20,0,0" />
+			</Panel>
+			<Panel>
+				<Clicked>
+					<Toggle Target="showImages" />
+					<Set showItems.Value="false" />
+					<Set showInfos.Value="false" />
+					<Set showContact.Value="false" />
+					<Set showLocations.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem4" FontSize="30" Value="Fotos" Margin="20,20,0,0" />
+			</Panel>
+			<Panel>
+				<Clicked>
+					<Toggle Target="showContact" />
+					<Set showItems.Value="false" />
+					<Set showInfos.Value="false" />
+					<Set showLocations.Value="false" />
+					<Set showImages.Value="false" />
+				</Clicked>
+				<MenuText ux:Name="MenuItem5" FontSize="30" Value="Quiz" Margin="20,20,0,0" />
+			</Panel>
+		</StackPanel>
+</Panel>

@@ -1,0 +1,20 @@
+<App>
+
+	<Router ux:Name="router" />
+
+	<ux:Include File="Resources.ux" />
+
+	<Font File="Assets/Fonts/built_titling_rg.otf" ux:Global="MainFont" />
+	<Navigator DefaultPath="firstPage">
+
+	<Page ux:Template="firstPage">
+		<ux:Include File="content.ux" />
+	</Page>
+
+	 <Page ux:Template="LoginPage">
+        <ux:Include File="SignUp.ux" />
+     </Page>
+			
+		</Navigator>
+
+</App>

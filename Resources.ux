@@ -1,0 +1,182 @@
+
+<Panel>
+	
+	<Panel>
+	<float4 ux:Global="Green"      ux:Value="#14FFB5"/>
+	<float4 ux:Global="Purple"     ux:Value="#5E2E91"/>
+	<float4 ux:Global="White"      ux:Value="#FFFFFF"/>
+	<float4 ux:Global="Gray"       ux:Value="#999999"/>
+	<float4 ux:Global="TopGray"    ux:Value="#9F83BD"/>
+	<float4 ux:Global="BottomGray" ux:Value="#7E58A7"/>
+	</Panel>
+
+<Panel ux:Class="HidingPanel" ux:Name="self" Opacity="0" IsEnabled="false" HitTestMode="LocalBoundsAndChildren">
+	<WhileEnabled>
+		<Change self.Opacity="1" Duration="0.4"/>
+	</WhileEnabled>
+</Panel>
+<JavaScript File="WhiteLabel.js" />
+
+<DockPanel ux:Class="FloatingLabel">
+<string ux:Property="PlaceholderText" />
+<string ux:Property="Value" />	
+<int ux:Property="MaxLength" />
+<TextInputHint ux:Property="InputHint" />	
+<Panel Dock="Top">
+		<!--Rectangle Fill="#FFFFFF" Height="20"/-->
+		<Text ux:Name="labeltop" Value="{Property PlaceholderText}" Color="{ColorMain}" Visibility="Hidden" Font="MainFont" FontSize="18"/>
+	</Panel>
+<Panel Dock="Bottom">
+	
+	<TextInput ux:Name="input" Value="{Property this.Value}" Width="100%" MaxLength="{Property this.MaxLength}" InputHint="{Property this.InputHint}" Font="MainFont" FontSize="22" >
+
+		<Text ux:Name="label" Value="{Property PlaceholderText}" Color="{ColorMain}" Font="MainFont" FontSize="22" />
+		<Rectangle ux:Name="bottomLine" Fill="#9E9E9E" Height="5%" Alignment="Bottom" Layer="Background"/> 
+
+		<WhileContainsText>
+			<Change labeltop.Visibility="Visible" />
+			<Move X="0" Y="-1" Target="labeltop" />
+			<Change label.Visibility = "Hidden" />
+		</WhileContainsText>
+
+		<WhileFocused>
+		<Change bottomLine.Fill="{ColorMain}" />
+		<Change label.Color="{ColorMain}" />
+		<Change label.FontSize="18" />
+		<Move X="0" Y="-22" Target="label" Duration="0.3" />	
+	</WhileFocused>
+
+	</TextInput>
+	
+</Panel>
+
+</DockPanel>
+
+<WrapPanel ux:Class="MiniFloatingButton" >
+	
+	<string ux:Property="BtnIcon" />
+	<float4 ux:Property="BtnTextColor" />
+	<float4 ux:Property="BtnColor" />
+
+	<Circle ux:Name="btn" Height="40" Width="40" Color="{Property this.BtnColor}" Margin="16">
+		<Rectangle Width="2" Height="35%" Color="#fff9" />
+		<Rectangle Height="2" Width="35%" Color="#fff9" />
+		<Clicked>
+
+		</Clicked>
+	</Circle>
+	<DropShadow />
+	
+</WrapPanel>
+
+
+
+
+<WrapPanel ux:Class="FlatButton">
+
+	<string ux:Property="BtnText" />
+	<float4 ux:Property="BtnTextColor" />
+
+	    <Rectangle ux:Name="btn" Height="36" CornerRadius="2" Dock="Left" Padding="16,0" Margin="16">
+
+			<WhileHovering>
+				<Change btn.Color="#00000012" Duration="0.2" />
+			</WhileHovering>
+
+			<Text Value="{Property this.BtnText}" Color="{Property this.BtnTextColor}" FontSize="14"  Alignment="CenterLeft"/>
+			
+		</Rectangle>
+
+</WrapPanel>
+
+
+
+
+	<Panel ux:Class="Cross" Width="50" Height="50" Alignment="Center" TransformOrigin="Center">
+		<Rectangle Width="2" Height="35%" Color="#fff9" />
+		<Rectangle Height="2" Width="35%" Color="#fff9" />
+	</Panel>
+
+	<Panel ux:Class="Menu" Width="230" Color="#ffff" Alignment="Left" />
+
+	<Image ux:Class="Icon" />
+
+	<Icon ux:Class="ClockIcon" File="Assets/icon_cam.png" />
+	<Icon ux:Class="TalkIcon" File="Assets/icon_music.png" />
+	<Icon ux:Class="LocationIcon" File="Assets/gallery.png" />
+	<Icon ux:Class="SunnyIcon" File="Assets/icon_sunny.png" />
+ 	<Icon ux:Class="SmallAvatarIcon" File="Assets/small_avatar.png" />
+	<Icon ux:Class="HamburgerIcon" File="Assets/icon_hamburger.png" />
+	<Icon ux:Class="HeartIcon" File="Assets/Icons/like.png" />
+	<Icon ux:Class="HeartIconFilled" File="Assets/Icons/like2.png" />
+
+
+	<Font ux:Global="Headline" File="Assets/Fonts/built_titling_rg.otf" />
+	<Font ux:Global="Archer" File="Assets/Fonts/Ubuntu-C.ttf" />
+
+	<Font ux:Global="RobotoThin" File="Assets/FOnts/built_titling_rg.otf" />
+	<Font ux:Global="RobotoLight" File="Assets/FOnts/built_titling_rg.otf" />
+	
+	<Text ux:Class="HeaderText" FontSize="42" Color="#fff" Font="RobotoThin" />
+	<Text ux:Class="BodyText" FontSize="18" Color="#fffa" Font="RobotoLight" />
+	<BodyText ux:Class="MuteText" Color="#eee" />
+
+	<Text ux:Class="DefaultText" Color="#ffff">
+		<Font File="Assets/FOnts/built_titling_rg.otf" />
+	</Text>
+
+	<Text ux:Class="MutedText" Color="#fffd" >
+		<Font File="Assets/FOnts/built_titling_rg.otf" />
+	</Text>
+	
+	<Text ux:Class="StampText" Color="#ffff">
+		<Font File="Assets/FOnts/built_titling_rg.otf" />
+	</Text>
+
+	<Text ux:Class="MainText" Color="#ffff">
+		<Font File="Assets/FOnts/built_titling_rg.otf" />
+	</Text>
+	
+	<Text ux:Class="MenuText" Color="#676565">
+		<Font File="Assets/FOnts/built_titling_rg.otf" />
+	</Text>
+
+
+	<Grid ux:Class="CalendarItem" Columns="1*,4*" >
+		<AddingAnimation>
+			<Move X="1" Duration="0.4" RelativeTo="Size" Easing="CircularInOut" DelayBack="{delay}" />
+			<Move Target="underline" X="1" Duration="0.4" RelativeTo="Size" Easing="CircularInOut" DelayBack="{lineDelay}" />
+		</AddingAnimation>
+		<RemovingAnimation>
+			<Move X="1" Duration="0.4" RelativeTo="Size" Easing="CircularInOut" DelayBack="{delay}" />
+			<Move Target="underline" X="1" Duration="0.4" RelativeTo="Size" Easing="CircularInOut" DelayBack="{lineDelay}" />
+		</RemovingAnimation>
+		<StackPanel Alignment="TopLeft" Width="40" Margin="0,15,0,0">
+			<DefaultText FontSize="35" Value="{item.time}" TextAlignment="Center" />
+			<MutedText FontSize="20" Value="{item.ampm}" TextAlignment="Center"/>
+		</StackPanel>
+		<Panel Margin="0,18">
+
+			<Panel>
+				<StackPanel Alignment="VerticalCenter">
+					<WhileTrue Value="{hasTitle}">
+						<DefaultText Value="{item.title}" FontSize="40" />
+					</WhileTrue>
+					<WhileTrue Value="{hasProject}">
+						<MutedText Value="{item.project}" FontSize="20" Margin="0,2" />
+					</WhileTrue>
+					<WhileTrue Value="{hasPeople}">
+						<WrapPanel Margin="0,8,0,0">
+							<Each Items="{item.people}">
+								<Image File="{picture}" Width="30" Height="30" Margin="5,0" />
+							</Each>
+						</WrapPanel>
+					</WhileTrue>
+				</StackPanel>
+			</Panel>
+		</Panel>
+		<WhileFalse Value="{isLast}">
+			<Rectangle ux:Name="underline" Height="1" Color="#fff3" Alignment="Bottom" Column="1" />
+		</WhileFalse>
+	</Grid>
+</Panel>
