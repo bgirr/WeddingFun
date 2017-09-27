@@ -202,7 +202,7 @@
 				</Clicked>
 				<MenuText ux:Name="MenuItem5" FontSize="28" Value="Quiz" Margin="20,20,0,0" Clicked="{quizQuestion}"/>
 			</Panel>
-			
+
 			<Panel Clicked="{setPage4Headline}" Dock="Top" Visibility="{PhotoVisibility}">
 				<Clicked>
 					<Toggle Target="showImages" />
@@ -368,66 +368,6 @@
 									</Rectangle>
 								</Each>
 
-								<Rectangle Margin="10" Color="White" CornerRadius="2">
-									<StackPanel>
-											<StackPanel>
-												<Text Alignment="Left" Value="Fotos" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
-												<Text Value="Ihr habt am Hochzeitstag die Möglichkeit über unsere Homepage oder die App eigene Bilder zu machen und hochzuladen. Wir würden uns freuen wenn so ein paar Schnappschüsse zusammen kommen, die wir dann gemeinsam anschauen können." Font="Archer" Margin="16, 8, 16, 5"  FontSize="16" TextColor="{TextColor}"  TextWrapping="Wrap"/>
-											</StackPanel>
-									</StackPanel>
-									<DropShadow />
-								</Rectangle>
-
-								<Rectangle Margin="10" Color="White" CornerRadius="2">
-									<StackPanel>
-											<StackPanel>
-												<Text Alignment="Left" Value="Kuchen" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
-												<Text Value="Wenn ihr gerne einen Kuchen backt, gibt uns gerne Bescheid. Wir freuen uns, wenn wir eine bunte Auswahl für unser Kuchenbuffet zusammen bekommen." Font="Archer" Margin="16, 8, 16, 5"  FontSize="16" TextColor="{TextColor}" TextWrapping="Wrap"/>
-											</StackPanel>
-									</StackPanel>
-									<DropShadow />
-								</Rectangle>
-
-								<Rectangle Margin="10" Color="White" CornerRadius="2">
-									<StackPanel>
-											<StackPanel>
-												<Text Alignment="Left" Value="Kleidung" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
-												<Text Value="Erwünscht." Font="Archer" Margin="16, 8, 16, 5"  TextColor="{TextColor}" FontSize="16"  TextWrapping="Wrap"/>
-											</StackPanel>
-									</StackPanel>
-									<DropShadow />
-								</Rectangle>
-
-								<Rectangle Margin="10" Color="White" CornerRadius="2">
-									<StackPanel>
-											<StackPanel>
-												<Text Alignment="Left" Value="Autokorso" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
-												<Text Value="Wir haben als Deko für eure Autos selbstgemachte Wimpel vorbereitet, die könnt ihr an Antenne, Scheibenwischer oder Spiegel ganz einfach festknoten. Hupen in der Kolonne ist ausdrücklich erwünscht :)" TextColor="{TextColor}" Font="Archer" Margin="16, 8, 16, 5"  FontSize="16"  TextWrapping="Wrap"/>
-											</StackPanel>
-									</StackPanel>
-									<DropShadow />
-								</Rectangle>
-
-
-								<Rectangle Margin="10" Color="White" CornerRadius="2">
-									<StackPanel>
-											<StackPanel>
-												<Text Alignment="Left" Value="Geschenke" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
-												<Text Value="Wir freuen uns, wenn ihr diesen Tag gemeinsam mit uns feiert, wer uns darüber hinaus eine Freude machen will kann gerne unsere Altersvorsorge unterstützen. Vom Kauf griechischer Staatsanleihen bitten wir abzusehen." Font="Archer" Margin="16, 8, 16, 5"  FontSize="16"  TextWrapping="Wrap"/>
-											</StackPanel>
-									</StackPanel>
-									<DropShadow />
-								</Rectangle>
-
-								<Rectangle Margin="10" Color="White" CornerRadius="2">
-									<StackPanel>
-											<StackPanel>
-												<Text Alignment="Left" Value="Spiele und Programm" Margin="16, 5, 0, 0" Font="Headline" TextColor="{TextColorHeadline}" TextWrapping="Wrap" FontSize="35" />
-												<Text Value="Wir möchten vor allem einen gemütlichen und lustigen Abend mit Euch verbringen und haben selbst ein paar kleine Spiele vorbereitet. Ihr müsst nichts mitbringen – nur gute Laune ; )" Font="Archer" Margin="16, 8, 16, 5"  FontSize="16"  TextWrapping="Wrap"/>
-											</StackPanel>
-									</StackPanel>
-									<DropShadow />
-								</Rectangle>
 								<Panel Height="80"/>
 							</StackPanel>
 						</ScrollView>
