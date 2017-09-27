@@ -6,7 +6,8 @@
     "Fuse.CameraRoll",
     "Fuse.ImageTools",
     "FuseJS",
-    "Fuse.Maps"
+    "Fuse.Maps",
+    "Fuse.PushNotifications"
   ],
   "Includes": [
     "MainView.js:File",
@@ -25,7 +26,8 @@
    "Geo": {
         "ApiKey": "AIzaSyBTn02YnIduSnwerrltGOZ-LH7-F85g864"
     },
-          "Icons": {
+   
+   "Icons": {
           "LDPI": "Assets/Icons/Android/ldpi.png",
           "MDPI": "Assets/Icons/Android/mdpi.png",
           "HDPI": "Assets/Icons/Android/hdpi.png",
@@ -33,6 +35,10 @@
           "XXHDPI": "Assets/Icons/Android/xxhdpi.png",
           "XXXHDPI": "Assets/Icons/Android/xxxhdpi.png",
       },
+
+  "GooglePlay": {
+          "SenderID": "981881208990"
+  },  
 
    "Key": {
       "Alias": "application",

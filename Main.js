@@ -82,6 +82,26 @@ getHeaderImage();
 getColors();
 getMenuVisibility();
 
+//Push Notification
+var push = require("FuseJS/Push");
+
+push.on("registrationSucceeded", function(regID){
+  console.log("Push Notification Registration Succeded: " + regID);
+  //Hier die regID mit der UserID an das Backend schicken 
+  //Error Handling --> Nach Zeit erneut versuchen
+});
+
+push.on("error", function(reason){
+  console.log("Push Notification Registration failed: " + reason);
+  //Error Handling definieren --> Nach Zeit erneut versuchen
+});
+
+push.on("receivedMessage", function(payload){
+  console.log("Recieved Push Notification: " + payload);
+  //Hier eventuell Action ergänzen
+});
+
+
 function checkUser(){
   debug_log('Prüfe User...........................................................');
   Storage.read(SAVEUSER).then(function(content) {
