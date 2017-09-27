@@ -23,6 +23,7 @@
 
 
   "Android": {
+   "Package": "com.apps.ursibeeni",
    "Geo": {
         "ApiKey": "AIzaSyBTn02YnIduSnwerrltGOZ-LH7-F85g864"
     },
